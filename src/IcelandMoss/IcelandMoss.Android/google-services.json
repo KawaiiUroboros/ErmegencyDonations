@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1045472360300",
+    "firebase_url": "https://emergedon.firebaseio.com",
+    "project_id": "emergedon",
+    "storage_bucket": "emergedon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045472360300:android:29ea674dfb40edc5d6a549",
+        "android_client_info": {
+          "package_name": "com.companyname.icelandmoss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045472360300-gm2h565iupc46fmq7uq9vb7pat58a623.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXdWqZFtaSAgLqDrjmCzUWtbAtFcOiox0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045472360300-gm2h565iupc46fmq7uq9vb7pat58a623.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

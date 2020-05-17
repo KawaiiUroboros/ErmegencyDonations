@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="IcelandMoss.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--  fonts  -->
+            <OnPlatform x:Key="FontAwesome5FreeRegular" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="FontAwesome5Free-Regular" />
+                <On Platform="Android" Value="far.otf#Regular" />
+            </OnPlatform>
+            <OnPlatform x:Key="FontAwesome5FreeSolid" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="FontAwesome5Free-Solid" />
+                <On Platform="Android" Value="fas.otf#Solid" />
+            </OnPlatform>
+            <OnPlatform x:Key="MontserratMedium" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Montserrat-Medium" />
+                <On Platform="Android" Value="Montserrat-Medium.ttf#Regular" />
+            </OnPlatform>
+            <OnPlatform x:Key="MontserratLight" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Montserrat-Light" />
+                <On Platform="Android" Value="Montserrat-Light.ttf#Regular" />
+            </OnPlatform>
+
+            <!--  colors  -->
+            <Color x:Key="ButtonBackgroundColor">#F5F9FA</Color>
+            <Color x:Key="TextColor">#313643</Color>
+            <Color x:Key="LightTextColor">#B2B2B2</Color>
+
+            <!--  styles  -->
+            <Style x:Key="HeaderFontLight" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            </Style>
+            <Style x:Key="HeaderFontMedium" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratMedium}" />
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            </Style>
+
+            <Style x:Key="BodyFontMedium" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratMedium}" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+            </Style>
+
+            <Style x:Key="BodyFontLight" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+            </Style>
+
+
+            <Style x:Key="CommandButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+                <Setter Property="CornerRadius" Value="14" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="WidthRequest" Value="48" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+                <Setter Property="WidthRequest" Value="48" />
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="CornerRadius" Value="14" />
+            </Style>
+
+            <!--  implicit styles (applies to all elements of TargetType)  -->
+            <Style TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
