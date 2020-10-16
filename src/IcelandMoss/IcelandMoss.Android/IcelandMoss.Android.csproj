@@ -74,6 +74,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
+    <PackageReference Include="PCLStorage">
+      <Version>1.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.FirebasePushNotification">
       <Version>3.1.6</Version>
     </PackageReference>
@@ -93,6 +96,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fileservice.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderer\CustomLabelRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

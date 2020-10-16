@@ -37,12 +37,13 @@
         <ImageButton
             Margin="20"
             Padding="10"
-            BackgroundColor="#33FFFFFF"
+            BackgroundColor="HotPink"
             HorizontalOptions="End"
             Source="heart_icon"
             Style="{StaticResource ButtonStyle}"
             VerticalOptions="Center" 
-            IsVisible="False"/>
+            Clicked="AddImage"
+            IsVisible="True"/>
 
         <Grid
             x:Name="ProductPopoverGrid"

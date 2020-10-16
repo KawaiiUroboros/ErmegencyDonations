@@ -1,9 +1,16 @@
 ﻿
+using Android.Content;
+using Android.Graphics;
+using Android.Provider;
 using IcelandMoss.Extensions;
 using IcelandMoss.ViewModels;
+using Java.IO;
+using PCLStorage;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -12,6 +19,10 @@ using Xamarin.Forms.Xaml;
 
 namespace IcelandMoss.Controls
 {
+    public interface IFileService
+    {
+        void SavePicture(string url);
+    }
     /// <summary>
     /// will pop up if you want to tap a panel
     /// </summary>
@@ -70,6 +81,52 @@ namespace IcelandMoss.Controls
         {
             quantityCount++;
             UpdateDisplay();
+        }
+        static readonly HttpClient _client = new HttpClient();
+
+        public static Task<byte[]> DownloadImage(string imageUrl)
+        {
+            if (!imageUrl.Trim().StartsWith("https", StringComparison.OrdinalIgnoreCase))
+                throw new Exception("iOS and Android Require Https");
+
+            return _client.GetByteArrayAsync(imageUrl);
+        }
+        public  void AddImage(object sender, EventArgs e)
+        {
+            string url = ((MainViewModel)this.BindingContext).SelectedProduct.ImageUrl;
+            System.Console.WriteLine(url);
+           byte[] i = DownloadImage(url).Result;
+            DependencyService.Get<IFileService>().SavePicture(url); 
+            System.Console.WriteLine("done");
+
+
+
+        }
+
+
+      public void SavePictureToDisk(string filename, byte[] imageData)  
+        {  
+            var dir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);  
+            var pictures = dir.AbsolutePath;  
+            //adding a time stamp time file name to allow saving more than one image... otherwise it overwrites the previous saved image of the same name  
+            string name = filename + System.DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";  
+            string filePath = System.IO.Path.Combine(pictures, name);  
+            try  
+            {  
+                System.IO.File.WriteAllBytes(filePath, imageData);  
+                //mediascan adds the saved image into the gallery  
+                var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+                SaveToDisk(filePath, imageData);
+            }  
+            catch(System.Exception e)  
+            {  
+                System.Console.WriteLine(e.ToString());  
+            }  
+
+        }  
+        public static void SaveToDisk(string imageFileName, byte[] imageAsBase64String)
+        {
+            Xamarin.Essentials.Preferences.Set(imageFileName, Convert.ToBase64String(imageAsBase64String));
         }
         /// <summary>
         /// FUTURE:To reduce monthes
